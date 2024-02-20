@@ -95,3 +95,103 @@ ou
 > cd CHEMINDOSSIER
 
 > pyenv local VERSION
+
+## Installation et utilisation de Poetry
+
+### Installation 
+
+- on sort de tout environnement, le global c'est celui qu'on a configuré dans PyEnv
+
+> pyenv deactivate
+
+- installation de pipx (https://github.com/pypa/pipx)
+
+> sudo apt install pipx
+
+> pipx ensurepath
+
+- installation de poetry  (https://python-poetry.org/docs/)
+
+> pipx install poetry
+
+> pipx upgrade poetry
+
+- vérification installation
+
+> poetry --version
+
+- utiliser par défaut l'environnement virtuel python s'il y a 
+
+> poetry config virtualenvs.prefer-active-python true
+
+### Utilisation 
+
+#### Dans un nouveau projet 
+
+- se placer dans le dossier qui va contenir le nouveau dossier PROJET
+
+> cd REPERTOIRE 
+
+- creation du projet 
+
+> poetry new PROJET 
+
+- création des fichiers à l'intérieur 
+
+> cd PROJET
+
+> touch projet/nouveauscript.py 
+
+
+
+#### Dans un projet existant 
+
+- se placer dans le répertoire du projet PROJET
+
+> cd PROJET
+
+- activer un env virtuel pyenv OU créer un fichier .python-version (cf ci-dessus) pour que poetry sache de quelle version on parle
+
+- initialiser poetry
+
+> poetry init --no-interaction
+
+#### Ajouter / updater/ supprimer des packages 
+
+> poetry add PACKAGE 
+
+> poetry update PACKAGE 
+
+> poetry remove PACKAGE 
+
+pour une version spécifique on peut la donner avec PACKAGE==VERSION et upgrade ne marchera plus
+
+#### Créer un alias pour un script 
+
+- modifier le fichier pyproject.toml en ajoutant le nom du script 'dossierscript/monscript.py'
+
+> [tool.poetry.scripts] 
+
+> alias = "dossierscript.monscript:main"
+
+- mettre à jour poetry 
+
+> poetry install
+
+- utilisation de l'alias 
+
+> poetry run ALIAS ARGUMENTS
+
+#### Export pour réutilisation de l'application
+
+-création des fichiers .whl et archive du répertoire courant 
+
+> poetry build
+
+#### Se placer dans l'env virtuel correspondant aux infos de poetry
+
+- d'abord désactiver l'env courant et reboot le terminal 
+
+> poetry shell
+
+- ensuite on est dans l'environnement 
