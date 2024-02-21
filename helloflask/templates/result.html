@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<body>
+
+<h1>Merci de nous avoir contacté {{result['Nom']}} ! </h1>
+
+<table id="data" class="table table-striped">
+
+  <thead>
+    <tr>
+      <th>Information demandée</th>
+	    <th>Réponse</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for key, value in result.items() %}
+      <tr>
+        <td> {{ key }} </th>
+        <td> {{ value }} </td>
+      </tr>
+    {% endfor %}
+
+</table>
+
+<h1>Merci pour votre visite et à bientôt ! </h1>
+
+<p></p>
+ App Version: {{ app_version }}
+
+</body>
+</html>

@@ -195,3 +195,61 @@ pour une version spécifique on peut la donner avec PACKAGE==VERSION et upgrade 
 > poetry shell
 
 - ensuite on est dans l'environnement 
+
+## helloFlask
+
+### Description du projet
+
+Création d'un site internet avec trois pages : index(=home), à propos de nous (= about) et contactez nous (=form). L'utilisateur voit ses réponses au formulaire dans une page supplémentaire 'Merci de nous avoir contacté "nom de la personne" !'(=result).
+
+### Contributions au projet
+
+#### Environnement
+
+- installation de pyenv, poetry nécessaires, git optionnelle 
+
+- cloner le repo avec git 
+
+> git clone git@github.com:LexouLam/HelloFlask.git
+
+- se placer dans le répertoire ./HelloFlask puis lancer poetry et activer l'environnement
+
+> poetry install
+
+> poetry shell
+
+vérification que l'environnement et les packages sont bien chargés : 
+
+> python ./helloflask/helloflaskscript.py
+
+doit afficher :
+
+>\* Serving Flask app 'helloflaskscript'  
+\* Debug mode: off  
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.  
+\* Running on http://127.0.0.1:5000  
+Press CTRL+C to quit  
+
+#### Modifications de l'app
+
+- structure
+
+├── helloflask  
+│   ├── helloflaskscript.py  
+│   └── templates  
+│       ├── about.html  
+│       ├── form.html  
+│       ├── index.html  
+│       └── result.html  
+├── poetry.lock  
+├── pyproject.toml  
+└── README.md  
+
+- helloflask : dossier de la première app
+
+- helloflaskscript.py : script de l'app, avec flask
+
+- helloflask/templates : fichiers html gérés par jinja2 pour l'affichage de l'app
+
+Pour ajouter des fonctionnalités / pages, il faut à la fois ajouter une 'route' dans le script et créer un template 
+
